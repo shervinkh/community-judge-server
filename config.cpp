@@ -8,4 +8,4 @@
 #include "config.h"
 
 const QString Config::ver = "Beta-1";
-const QString Config::verDate = "2014/07/22";
+const QString Config::verDate = "2014/07/31";

@@ -10,6 +10,7 @@
 #include <QThread>
 #include <QFile>
 #include <QtNetwork>
+#include "config.h"
 
 TcpServer::TcpServer(Database *datab, quint16 port, bool ssl, QObject *parent) :
     QTcpServer(parent), database(datab), isSsl(ssl)
@@ -28,6 +29,8 @@ TcpServer::TcpServer(Database *datab, quint16 port, bool ssl, QObject *parent) :
 
     if (!listen(QHostAddress::Any, port))
         qFatal(QString("Could not open port %1.").arg(port).toLocal8Bit());
+
+    qDebug() << QString("Server Started. (Version: %1 - %2)").arg(Config::version()).arg(Config::versionDate());
 }
 
 
